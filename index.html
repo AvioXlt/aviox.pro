@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-fiwAqhz4gOK4g3/qz8AybD9M1YzvgANmEg2wUcIVQvM='; style-src 'sha256-z11g4bd23J4SJgQa0OyxISgdMRscM8JFYN9cBx1zPsQ=' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src data:; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-fiwAqhz4gOK4g3/qz8AybD9M1YzvgANmEg2wUcIVQvM='; style-src 'sha256-n9XbtqUx99J4UieNmyOBgZeQXyrwit2agxrPJkkRF7E=' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src data:; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>AVIO X</title>
 <meta name="description" content="Drones and machines, built to order in Lithuania.">
@@ -60,10 +60,12 @@ body{background:var(--night);color:var(--fog);font-family:var(--body);overflow:h
 :focus-visible{outline:1px solid var(--fog);outline-offset:4px}
 
 /* panels */
-dialog{background:var(--panel);color:var(--fog);border:1px solid var(--line);padding:0;width:min(36rem,calc(100vw - 32px));max-height:min(46rem,calc(100% - 32px))}
+dialog{background:var(--panel);color:var(--fog);border:1px solid var(--line);padding:0;width:min(36rem,calc(100vw - 32px));max-width:calc(100vw - 32px);
+  max-height:calc(100vh - 32px);max-height:calc(100dvh - 32px);overflow:hidden;box-sizing:border-box}
+dialog[open]{display:flex;flex-direction:column}
 dialog::backdrop{background:rgba(4,5,9,.72);backdrop-filter:blur(3px)}
-.pane{display:flex;flex-direction:column;gap:1.25rem;padding:1.75rem;overflow:auto;max-height:inherit;box-sizing:border-box}
-.pane-head{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.pane{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;gap:1.25rem;padding:0 1.75rem 1.75rem;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;box-sizing:border-box}
+.pane-head{position:sticky;top:0;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:1rem;background:var(--panel);padding-top:1.5rem;padding-bottom:.75rem;margin-bottom:-.5rem}
 .pane h2{margin:0;font-family:var(--display);font-style:italic;font-weight:900;font-stretch:112%;font-size:1.6rem;line-height:1;text-transform:uppercase}
 .close{background:none;border:0;color:var(--mute);font:400 1.6rem/1 var(--body);cursor:pointer;padding:.2rem .4rem}
 .close:hover{color:var(--fog)}
@@ -99,7 +101,9 @@ textarea{min-height:7rem;resize:vertical}
 
 @media (max-width:560px){
   .bot{flex-direction:column;align-items:flex-start;gap:.9rem}
-  .pane{padding:1.25rem}
+  dialog{width:100%;max-width:100%;height:100vh;height:100dvh;max-height:100vh;max-height:100dvh;margin:0;inset:0;border:0}
+  .pane{padding:0 1.25rem max(1.25rem,env(safe-area-inset-bottom,0px))}
+  .pane-head{padding-top:max(1.25rem,env(safe-area-inset-top,0px))}
 }
 *,*::before,*::after{box-sizing:border-box}body{margin:0}[hidden]{display:none!important}.top{padding-top:max(1.6rem,env(safe-area-inset-top,0px))}.bot{padding-bottom:max(1.6rem,env(safe-area-inset-bottom,0px))}
 </style>
