@@ -3,15 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-fiwAqhz4gOK4g3/qz8AybD9M1YzvgANmEg2wUcIVQvM='; style-src 'sha256-n9XbtqUx99J4UieNmyOBgZeQXyrwit2agxrPJkkRF7E=' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src data:; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-KZsQJkVjg88Vmjkdhz57zcbebDP4ArdN7OhN1GN3slg='; style-src 'sha256-mW1waIunmnnOtM3mnCM+BGbMCRg5KJIq64gsUwlA6CI=' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>AVIO X</title>
-<meta name="description" content="Drones and machines, built to order in Lithuania.">
-<meta property="og:title" content="AVIO X">
-<meta property="og:description" content="Drones and machines. Built to order.">
+<title>AvioX | Custom drones and machines, built to order in Lithuania</title>
+<meta name="description" content="AvioX (AVIO X) designs and builds one-off drones, flapping-wing aircraft, fixed-wing UAVs, RC machines and ESP32 electronics to order in Lithuania. Dronai pagal užsakymą.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://aviox.pro/">
+<meta property="og:site_name" content="AvioX">
+<meta property="og:title" content="AvioX | Drones and machines, built to order">
+<meta property="og:description" content="One-off drones, flapping-wing aircraft and machines, designed and built from zero in Lithuania.">
 <meta property="og:url" content="https://aviox.pro/">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#07080D">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AvioX","alternateName":["AVIO X","Avio X","AvioX Studio"],"url":"https://aviox.pro/","email":"avioxstudio@gmail.com","telephone":"+37069555934","description":"Custom drones, flapping-wing aircraft, RC machines and ESP32 electronics, built to order in Lithuania.","areaServed":"LT","address":{"@type":"PostalAddress","addressCountry":"LT"},"knowsAbout":["drones","UAV","ornithopter","fixed-wing aircraft","ESP32","RC vehicles"],"sameAs":["https://www.instagram.com/avio_x_ig/","https://www.tiktok.com/@www.aviox.lt","https://github.com/AvioXlt"]}</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2307080D'/%3E%3Ctext x='32' y='48' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-style='italic' font-size='40' text-anchor='middle' fill='%235C64FF'%3EX%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -78,6 +82,24 @@ dialog::backdrop{background:rgba(4,5,9,.72);backdrop-filter:blur(3px)}
 .clist dd{margin:0}
 .clist a{color:var(--fog)}
 
+/* builds */
+.tbtn{background:none;border:0;padding:.35rem .2rem;font:inherit;letter-spacing:inherit;text-transform:inherit;color:var(--mute);cursor:pointer;transition:color .2s}
+.tbtn:hover{color:var(--fog)}
+#builds{width:min(56rem,calc(100vw - 32px))}
+.bgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));padding:1px 0 0 1px}
+.bcard{background:var(--panel);display:flex;flex-direction:column;margin:-1px 0 0 -1px;border:1px solid var(--line)}
+.bshot{position:relative;aspect-ratio:4/3;overflow:hidden;background:repeating-linear-gradient(135deg,#0B0D14 0 6px,#0E1018 6px 12px)}
+.bshot img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(1) contrast(1.15) brightness(.82);transition:filter .5s}
+.bcard:hover .bshot img{filter:grayscale(.2) contrast(1.05) brightness(.95)}
+.bshot::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(7,8,13,.85));pointer-events:none}
+.bshot .redact{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+.bcap{display:flex;flex-direction:column;gap:.35rem;padding:.9rem 1rem 1.1rem}
+.bcode{display:flex;justify-content:space-between;gap:.5rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.bcode b{font-weight:400;color:var(--signal)}
+.bname{margin:0;font-family:var(--display);font-style:italic;font-weight:900;font-stretch:112%;font-size:1.05rem;text-transform:uppercase;line-height:1.05;color:var(--fog)}
+.bcap p{font-size:.88rem;line-height:1.45;color:var(--mute)}
+.bnote{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--dim)!important}
+
 /* request form */
 .meta{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
 .prog{position:relative;height:2px;background:var(--line);overflow:hidden}
@@ -99,6 +121,7 @@ textarea{min-height:7rem;resize:vertical}
 .out{display:flex;flex-direction:column;gap:.9rem;border-top:1px solid var(--line);padding-top:1.1rem}
 .out pre{margin:0;white-space:pre-wrap;word-break:break-word;font:400 .85rem/1.5 var(--mono);color:var(--fog);border-left:2px solid var(--signal);padding:.25rem 0 .25rem .9rem}
 
+@media (max-width:380px){.top [data-t="tag"]{display:none}.top{justify-content:flex-end}}
 @media (max-width:560px){
   .bot{flex-direction:column;align-items:flex-start;gap:.9rem}
   dialog{width:100%;max-width:100%;height:100vh;height:100dvh;max-height:100vh;max-height:100dvh;margin:0;inset:0;border:0}
@@ -114,6 +137,7 @@ textarea{min-height:7rem;resize:vertical}
   <header class="top">
     <span data-t="tag">Built in Lithuania</span>
     <div class="tools">
+      <button class="tbtn" type="button" id="openBuilds" data-t="buildsBtn">Builds</button>
       <button class="info-btn" type="button" id="openInfo" aria-label="More info" data-al="infoLabel">i</button>
       <div class="lang" role="group" aria-label="Language">
         <button type="button" data-lang="lt" aria-pressed="false">LT</button>
@@ -138,6 +162,37 @@ textarea{min-height:7rem;resize:vertical}
     </nav>
   </footer>
 </main>
+
+<dialog id="builds" aria-labelledby="buildsTitle">
+  <div class="pane">
+    <div class="pane-head"><h2 id="buildsTitle" data-t="buildsTitle">Builds</h2><button class="close" type="button" data-close aria-label="Close">×</button></div>
+    <p data-t="buildsIntro">A few things that left the workshop. Most work stays unpublished.</p>
+    <div class="bgrid">
+      <figure class="bcard" data-slug="ornithopter">
+        <div class="bshot"><span class="redact" data-t="noPhoto">Photo withheld</span></div>
+        <figcaption class="bcap"><span class="bcode">AX-01<b data-t="st_test"></b></span><h3 class="bname" data-t="b1n">Flapping-wing drone</h3><p data-t="b1d">Built to fly by flapping, not spinning. Gearbox, wings and electronics designed and 3D printed in-house. Being built and tested.</p></figcaption>
+      </figure>
+      <figure class="bcard" data-slug="solaruav">
+        <div class="bshot"><span class="redact" data-t="noPhoto">Photo withheld</span></div>
+        <figcaption class="bcap"><span class="bcode">AX-02<b data-t="st_wip"></b></span><h3 class="bname" data-t="b2n">Solar fixed-wing</h3><p data-t="b2d">Fixed-wing airframe with solar cells across the top of the wing.</p></figcaption>
+      </figure>
+      <figure class="bcard" data-slug="rccar">
+        <div class="bshot"><span class="redact" data-t="noPhoto">Photo withheld</span></div>
+        <figcaption class="bcap"><span class="bcode">AX-03<b data-t="st_won"></b></span><h3 class="bname" data-t="b3n">Stored-energy car</h3><p data-t="b3d">No motor, no battery for drive. Stored energy only, steering by microcontroller. Under 300 g. Took 1st place.</p></figcaption>
+      </figure>
+      <figure class="bcard" data-slug="rocket">
+        <div class="bshot"><span class="redact" data-t="noPhoto">Photo withheld</span></div>
+        <figcaption class="bcap"><span class="bcode">AX-04<b data-t="st_done"></b></span><h3 class="bname" data-t="b4n">Rocket launch system</h3><p data-t="b4d">3D printed rocket and pad, armed and fired from a phone over Wi-Fi, with a physical safety switch.</p></figcaption>
+      </figure>
+      <figure class="bcard" data-slug="tracker">
+        <div class="bshot"><span class="redact" data-t="noPhoto">Photo withheld</span></div>
+        <figcaption class="bcap"><span class="bcode">AX-05<b data-t="st_done"></b></span><h3 class="bname" data-t="b5n">High-altitude tracker</h3><p data-t="b5d">LoRa GPS link for a stratospheric balloon, plotted live on a map.</p></figcaption>
+      </figure>
+    </div>
+    <p class="bnote" data-t="buildsNote">Client work is never shown without permission.</p>
+    <div class="row"><button class="btn solid" type="button" id="buildsToReq" data-t="cta">Submit a request</button></div>
+  </div>
+</dialog>
 
 <dialog id="info" aria-labelledby="infoTitle">
   <div class="pane">
@@ -207,6 +262,14 @@ textarea{min-height:7rem;resize:vertical}
       howH: "How it works", h1: "You describe the job.", h2: "You get a fixed price and a date before anything starts.", h3: "I design, build and test, and send progress videos.", h4: "You get the finished build.",
       knowH: "Good to know", k1: "Flying rules depend on the drone's weight and where you fly. I'll tell you what probably applies, but check with your aviation authority.", k2: "Languages: Lithuanian, English.",
       contactH: "Contact", cPhone: "Phone", cEmail: "Email",
+      buildsBtn: "Builds", buildsTitle: "Builds", buildsIntro: "A few things that left the workshop. Most work stays unpublished.", noPhoto: "Photo withheld",
+      st_test: "In test", st_wip: "In the workshop", st_won: "1st place", st_done: "Built",
+      b1n: "Flapping-wing drone", b1d: "Built to fly by flapping, not spinning. Gearbox, wings and electronics designed and 3D printed in-house. Being built and tested.",
+      b2n: "Solar fixed-wing", b2d: "Fixed-wing airframe with solar cells across the top of the wing.",
+      b3n: "Stored-energy car", b3d: "No motor, no battery for drive. Stored energy only, steering by microcontroller. Under 300 g. Took 1st place.",
+      b4n: "Rocket launch system", b4d: "3D printed rocket and pad, armed and fired from a phone over Wi-Fi, with a physical safety switch.",
+      b5n: "High-altitude tracker", b5d: "LoRa GPS link for a stratospheric balloon, plotted live on a map.",
+      buildsNote: "Client work is never shown without permission.",
       stepOf: "Step {n} of 3", steps: ["The job", "Limits", "You"],
       q1: "What does it have to do?", fJob: "Where it works, what it carries, how long it runs", jobPh: "e.g. film a 2 km stretch of river from above for 30 minutes",
       q2: "Any limits?", fLimits: "Size or weight limits", limitsPh: "e.g. under 250 g, fits in a backpack", fDeadline: "Deadline", deadlinePh: "e.g. end of January", fBudget: "Budget",
@@ -224,6 +287,14 @@ textarea{min-height:7rem;resize:vertical}
       howH: "Kaip tai vyksta", h1: "Aprašote užduotį.", h2: "Prieš pradedant gaunate fiksuotą kainą ir terminą.", h3: "Projektuoju, gaminu ir testuoju, siunčiu progreso vaizdo įrašus.", h4: "Gaunate paruoštą darbą.",
       knowH: "Verta žinoti", k1: "Skrydžių taisyklės priklauso nuo drono svorio ir vietos, kur skrendate. Pasakysiu, kas greičiausiai taikoma, bet pasitikrinkite Transporto kompetencijų agentūroje.", k2: "Kalbos: lietuvių, anglų.",
       contactH: "Kontaktai", cPhone: "Telefonas", cEmail: "El. paštas",
+      buildsBtn: "Darbai", buildsTitle: "Darbai", buildsIntro: "Keli darbai, kurie paliko dirbtuvę. Dauguma lieka neviešinami.", noPhoto: "Nuotrauka neskelbiama",
+      st_test: "Bandomas", st_wip: "Dirbtuvėje", st_won: "1 vieta", st_done: "Pagamintas",
+      b1n: "Plasnojančių sparnų dronas", b1d: "Sukurtas skristi plasnodamas, o ne sukdamas propelerius. Pavarų dėžė, sparnai ir elektronika suprojektuoti ir atspausdinti savo dirbtuvėje. Kuriamas ir bandomas.",
+      b2n: "Saulės fiksuoto sparno orlaivis", b2d: "Fiksuoto sparno korpusas su saulės elementais ant sparno viršaus.",
+      b3n: "Sukauptos energijos mašina", b3d: "Be variklio ir be baterijos varymui. Tik sukaupta energija, vairuoja mikrovaldiklis. Iki 300 g. Laimėjo 1 vietą.",
+      b4n: "Raketos paleidimo sistema", b4d: "3D spausdinta raketa ir paleidimo aikštelė, užtaisoma ir paleidžiama telefonu per Wi-Fi, su fiziniu saugikliu.",
+      b5n: "Stratosferos sekiklis", b5d: "LoRa GPS ryšys stratosferos balionui, rodomas žemėlapyje realiu laiku.",
+      buildsNote: "Užsakovų darbai be leidimo niekada nerodomi.",
       stepOf: "{n} žingsnis iš 3", steps: ["Užduotis", "Apribojimai", "Jūs"],
       q1: "Ką tai turi daryti?", fJob: "Kur veiks, ką neš, kiek laiko turi veikti", jobPh: "pvz., filmuoti 2 km upės ruožą iš viršaus 30 minučių",
       q2: "Kokie apribojimai?", fLimits: "Dydžio ar svorio apribojimai", limitsPh: "pvz., iki 250 g, telpa į kuprinę", fDeadline: "Terminas", deadlinePh: "pvz., sausio pabaiga", fBudget: "Biudžetas",
@@ -262,6 +333,9 @@ textarea{min-height:7rem;resize:vertical}
   $("openInfo").addEventListener("click", function(){ open($("info")); });
   $("openReq").addEventListener("click", function(){ open($("req")); setTimeout(function(){ $("f-job").focus(); }, 30); });
   $("infoToReq").addEventListener("click", function(){ close($("info")); open($("req")); });
+  $("openBuilds").addEventListener("click", function(){ open($("builds")); });
+  $("buildsToReq").addEventListener("click", function(){ close($("builds")); open($("req")); });
+  if (location.hash === "#builds") open($("builds"));
   document.querySelectorAll("[data-close]").forEach(function(b){ b.addEventListener("click", function(){ close(b.closest("dialog")); }); });
   document.querySelectorAll("dialog").forEach(function(dlg){ dlg.addEventListener("click", function(e){ if (e.target === dlg) close(dlg); }); });
 
