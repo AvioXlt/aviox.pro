@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
 Sitemap: https://aviox.pro/sitemap.xml

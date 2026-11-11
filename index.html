@@ -2,437 +2,231 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-KZsQJkVjg88Vmjkdhz57zcbebDP4ArdN7OhN1GN3slg='; style-src 'sha256-mW1waIunmnnOtM3mnCM+BGbMCRg5KJIq64gsUwlA6CI=' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
-<meta name="referrer" content="strict-origin-when-cross-origin">
-<title>AvioX | Custom drones and machines, built to order in Lithuania</title>
-<meta name="description" content="AvioX (AVIO X) designs and builds one-off drones, flapping-wing aircraft, fixed-wing UAVs, RC machines and ESP32 electronics to order in Lithuania. Dronai pagal užsakymą.">
-<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AvioX — custom drones, ornithopters &amp; flying mechanisms</title>
+<meta name="description" content="AvioX builds small, fragile-looking flying machines from scratch in Lithuania: flapping-wing ornithopters, fixed-wing FPV drones, printed micro gearboxes and ESP32 electronics.">
 <link rel="canonical" href="https://aviox.pro/">
-<meta property="og:site_name" content="AvioX">
-<meta property="og:title" content="AvioX | Drones and machines, built to order">
-<meta property="og:description" content="One-off drones, flapping-wing aircraft and machines, designed and built from zero in Lithuania.">
-<meta property="og:url" content="https://aviox.pro/">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#f2efe6">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#07080D">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AvioX","alternateName":["AVIO X","Avio X","AvioX Studio"],"url":"https://aviox.pro/","email":"avioxstudio@gmail.com","telephone":"+37069555934","description":"Custom drones, flapping-wing aircraft, RC machines and ESP32 electronics, built to order in Lithuania.","areaServed":"LT","address":{"@type":"PostalAddress","addressCountry":"LT"},"knowsAbout":["drones","UAV","ornithopter","fixed-wing aircraft","ESP32","RC vehicles"],"sameAs":["https://www.instagram.com/avio_x_ig/","https://www.tiktok.com/@www.aviox.lt","https://github.com/AvioXlt"]}</script>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2307080D'/%3E%3Ctext x='32' y='48' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-style='italic' font-size='40' text-anchor='middle' fill='%235C64FF'%3EX%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,100..125,700..900;1,100..125,700..900&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap">
-<style>
-/* Layout: one dark screen. Line + info + language on top, the wide-and-tall AVIO X wordmark with one line and a request button in the middle,
-   every contact option along the bottom. Request and info open as small panels. A faint flock drifts behind. Deliberate single dark look. */
-:root{
-  --night:#07080D; --panel:#0E1018; --fog:#E5E7EB; --mute:#8A8FA0; --dim:#4A4F60; --line:#232633; --signal:#5C64FF;
-  --display:"Archivo","Arial Black",Impact,sans-serif;
-  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
-  color-scheme:dark;
-}
-html,body{height:100%}
-body{background:var(--night);color:var(--fog);font-family:var(--body);overflow:hidden}
-#flock{position:fixed;inset:0;width:100%;height:100%;display:block}
-.stage{position:relative;z-index:1;height:100%;display:grid;grid-template-rows:auto 1fr auto;
-  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
-  max-width:84rem;margin:0 auto;box-sizing:border-box}
-.top,.bot{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-block:1.6rem;
-  font-family:var(--mono);font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
-.tools{display:flex;align-items:center;gap:.9rem}
-.info-btn{display:inline-flex;align-items:center;justify-content:center;width:1.9rem;height:1.9rem;border:1px solid var(--dim);border-radius:50%;
-  background:none;color:var(--mute);font:500 .82rem var(--body);cursor:pointer;transition:border-color .2s,color .2s}
-.info-btn:hover{border-color:var(--fog);color:var(--fog)}
-.lang{display:flex;gap:.1rem}
-.lang button{background:none;border:0;font:inherit;letter-spacing:inherit;color:var(--dim);padding:.35rem .45rem;cursor:pointer;transition:color .2s}
-.lang button:hover{color:var(--mute)}
-.lang button[aria-pressed="true"]{color:var(--fog)}
-.mid{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:2rem;min-width:0}
-.wm{margin:0;padding-top:.35em;font-family:var(--display);font-style:italic;font-weight:900;font-stretch:118%;
-  font-size:clamp(3.4rem,17vw,12.5rem);line-height:.85;letter-spacing:-.005em;white-space:nowrap;
-  transform:scale(1.04,1.3);transform-origin:0 100%}
-.wm .x{color:var(--signal);margin-left:.2em}
-.line{margin:0;max-width:32ch;font-size:clamp(1rem,1.5vw,1.15rem);line-height:1.5;color:var(--mute)}
-.cta{background:var(--fog);color:var(--night);border:1px solid var(--fog);font:500 .95rem var(--body);letter-spacing:.02em;
-  padding:.8rem 1.4rem;cursor:pointer;transition:background .2s,color .2s}
-.cta:hover{background:transparent;color:var(--fog)}
-.bot{flex-wrap:wrap}
-.contacts{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem}
-.bot a{color:var(--mute);text-decoration:none;background:linear-gradient(var(--fog),var(--fog)) 0 100%/0 1px no-repeat;
-  padding-bottom:2px;transition:color .2s,background-size .3s}
-.bot a:hover,.bot a:focus-visible{color:var(--fog);background-size:100% 1px}
-.plain{text-transform:none;letter-spacing:.04em;font-size:.84rem}
-:focus-visible{outline:1px solid var(--fog);outline-offset:4px}
-
-/* panels */
-dialog{background:var(--panel);color:var(--fog);border:1px solid var(--line);padding:0;width:min(36rem,calc(100vw - 32px));max-width:calc(100vw - 32px);
-  max-height:calc(100vh - 32px);max-height:calc(100dvh - 32px);overflow:hidden;box-sizing:border-box}
-dialog[open]{display:flex;flex-direction:column}
-dialog::backdrop{background:rgba(4,5,9,.72);backdrop-filter:blur(3px)}
-.pane{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;gap:1.25rem;padding:0 1.75rem 1.75rem;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;box-sizing:border-box}
-.pane-head{position:sticky;top:0;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:1rem;background:var(--panel);padding-top:1.5rem;padding-bottom:.75rem;margin-bottom:-.5rem}
-.pane h2{margin:0;font-family:var(--display);font-style:italic;font-weight:900;font-stretch:112%;font-size:1.6rem;line-height:1;text-transform:uppercase}
-.close{background:none;border:0;color:var(--mute);font:400 1.6rem/1 var(--body);cursor:pointer;padding:.2rem .4rem}
-.close:hover{color:var(--fog)}
-.pane h3{margin:0;font-family:var(--mono);font-weight:400;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
-.pane p,.pane li{margin:0;font-size:.98rem;line-height:1.55;color:#C9CCD4}
-.pane ul,.pane ol{margin:0;padding-left:1.2rem;display:flex;flex-direction:column;gap:.35rem}
-.block{display:flex;flex-direction:column;gap:.6rem}
-.clist{display:grid;grid-template-columns:auto minmax(0,1fr);gap:.45rem 1.25rem;font-size:.95rem}
-.clist dt{color:var(--mute);font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;padding-top:.15rem}
-.clist dd{margin:0}
-.clist a{color:var(--fog)}
-
-/* builds */
-.tbtn{background:none;border:0;padding:.35rem .2rem;font:inherit;letter-spacing:inherit;text-transform:inherit;color:var(--mute);cursor:pointer;transition:color .2s}
-.tbtn:hover{color:var(--fog)}
-#builds{width:min(56rem,calc(100vw - 32px))}
-.bgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));padding:1px 0 0 1px}
-.bcard{background:var(--panel);display:flex;flex-direction:column;margin:-1px 0 0 -1px;border:1px solid var(--line)}
-.bshot{position:relative;aspect-ratio:4/3;overflow:hidden;background:repeating-linear-gradient(135deg,#0B0D14 0 6px,#0E1018 6px 12px)}
-.bshot img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(1) contrast(1.15) brightness(.82);transition:filter .5s}
-.bcard:hover .bshot img{filter:grayscale(.2) contrast(1.05) brightness(.95)}
-.bshot::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(7,8,13,.85));pointer-events:none}
-.bshot .redact{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
-.bcap{display:flex;flex-direction:column;gap:.35rem;padding:.9rem 1rem 1.1rem}
-.bcode{display:flex;justify-content:space-between;gap:.5rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
-.bcode b{font-weight:400;color:var(--signal)}
-.bname{margin:0;font-family:var(--display);font-style:italic;font-weight:900;font-stretch:112%;font-size:1.05rem;text-transform:uppercase;line-height:1.05;color:var(--fog)}
-.bcap p{font-size:.88rem;line-height:1.45;color:var(--mute)}
-.bnote{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--dim)!important}
-
-/* request form */
-.meta{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
-.prog{position:relative;height:2px;background:var(--line);overflow:hidden}
-.prog span{position:absolute;left:0;top:0;bottom:0;width:33.4%;background:var(--signal);transition:width .35s ease}
-.step{display:flex;flex-direction:column;gap:1rem}
-.q{margin:0;font-family:var(--display);font-style:italic;font-weight:900;font-stretch:112%;font-size:1.3rem;text-transform:uppercase;line-height:1.05}
-label{display:flex;flex-direction:column;gap:.4rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
-input,select,textarea{font:400 1rem var(--body);text-transform:none;letter-spacing:normal;color:var(--fog);background:#07080D;border:1px solid var(--line);
-  border-radius:0;padding:.7rem .75rem;width:100%;box-sizing:border-box}
-input:focus,select:focus,textarea:focus{outline:none;border-color:var(--signal)}
-textarea{min-height:7rem;resize:vertical}
-::placeholder{color:#5A5F70}
-.row{display:flex;gap:.6rem;flex-wrap:wrap}
-.btn{font:500 .92rem var(--body);padding:.7rem 1.1rem;cursor:pointer;border:1px solid var(--fog);text-decoration:none;display:inline-flex;align-items:center}
-.btn.solid{background:var(--fog);color:var(--night)}
-.btn.line{background:transparent;color:var(--fog);border-color:var(--dim)}
-.btn.line:hover{border-color:var(--fog)}
-.status{margin:0;min-height:1.2em;font-family:var(--mono);font-size:.78rem;color:var(--signal)}
-.out{display:flex;flex-direction:column;gap:.9rem;border-top:1px solid var(--line);padding-top:1.1rem}
-.out pre{margin:0;white-space:pre-wrap;word-break:break-word;font:400 .85rem/1.5 var(--mono);color:var(--fog);border-left:2px solid var(--signal);padding:.25rem 0 .25rem .9rem}
-
-@media (max-width:380px){.top [data-t="tag"]{display:none}.top{justify-content:flex-end}}
-@media (max-width:560px){
-  .bot{flex-direction:column;align-items:flex-start;gap:.9rem}
-  dialog{width:100%;max-width:100%;height:100vh;height:100dvh;max-height:100vh;max-height:100dvh;margin:0;inset:0;border:0}
-  .pane{padding:0 1.25rem max(1.25rem,env(safe-area-inset-bottom,0px))}
-  .pane-head{padding-top:max(1.25rem,env(safe-area-inset-top,0px))}
-}
-*,*::before,*::after{box-sizing:border-box}body{margin:0}[hidden]{display:none!important}.top{padding-top:max(1.6rem,env(safe-area-inset-top,0px))}.bot{padding-bottom:max(1.6rem,env(safe-area-inset-bottom,0px))}
-</style>
+<meta property="og:site_name" content="AvioX">
+<meta property="og:title" content="AvioX — custom drones &amp; ornithopters">
+<meta property="og:description" content="Flapping-wing drones, fixed-wing FPV aircraft and micro mechanisms, designed and built from scratch.">
+<meta property="og:url" content="https://aviox.pro/">
+<meta property="og:image" content="https://aviox.pro/media/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon-192.png" sizes="192x192" type="image/png"><link rel="apple-touch-icon" href="favicon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"AvioX","alternateName":["Aviox","AvioX drones"],"url":"https://aviox.pro/","logo":"https://aviox.pro/favicon.svg","image":"https://aviox.pro/media/og.jpg",
+"description":"Custom drones, ornithopters and flying mechanisms designed and built from scratch in Lithuania.","founder":{"@type":"Person","name":"Rapolas"},
+"address":{"@type":"PostalAddress","addressCountry":"LT"},"email":"avioxstudio@gmail.com",
+"sameAs":["https://www.tiktok.com/@www.aviox.lt","https://www.instagram.com/www.aviox.lt/"]}
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"AvioX","alternateName":"Aviox","url":"https://aviox.pro/"}</script>
 </head>
 <body>
-<canvas id="flock" aria-hidden="true"></canvas>
-<main class="stage">
-  <header class="top">
-    <span data-t="tag">Built in Lithuania</span>
-    <div class="tools">
-      <button class="tbtn" type="button" id="openBuilds" data-t="buildsBtn">Builds</button>
-      <button class="info-btn" type="button" id="openInfo" aria-label="More info" data-al="infoLabel">i</button>
-      <div class="lang" role="group" aria-label="Language">
-        <button type="button" data-lang="lt" aria-pressed="false">LT</button>
-        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="AvioX home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 17 C11 9 5 7 2 9 C4 14 9 17 16 17Z M16 17 C21 9 27 7 30 9 C28 14 23 17 16 17Z M16 17 C12 20 8 24 7 27 C11 26 14 22 16 17Z M16 17 C20 20 24 24 25 27 C21 26 18 22 16 17Z" fill="none" stroke="currentColor" stroke-width="1.1"/><line x1="16" y1="11" x2="16" y2="25" stroke="currentColor" stroke-width="1.4"/></svg>
+      AvioX
+    </a>
+    <ul>
+      <li><a class="link" href="./" aria-current="page">Index</a></li>
+      <li><a class="link" href="builds.html">Builds</a></li>
+      <li><a class="link" href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <canvas id="flow" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="rv">
+        <div class="eyebrow mono">Flying machines · built from zero · Lithuania</div>
+        <h1 class="title">Avio<em>X</em></h1>
+        <p class="lede">Small, light, almost fragile things that fly. <strong>Flapping-wing drones, fixed-wing aircraft and micro mechanisms</strong> — every gear, wing and circuit designed and built by hand.</p>
+        <div class="hero-cta">
+          <a class="btn solid" href="builds.html">See the builds <svg viewBox="0 0 14 14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.3"/></svg></a>
+          <a class="btn" href="#contact">Commission a build</a>
+        </div>
+      </div>
+      <div class="hero-specimen rv" aria-hidden="true">
+        <svg viewBox="0 0 560 560" data-wing>
+          <path class="body-line" d="M280 230 Q286 300 280 420"/>
+          <circle cx="280" cy="300" r="9" class="membrane"/>
+          <g class="callout">
+            <line x1="148" y1="72" x2="210" y2="128"/><circle cx="210" cy="128" r="3"/>
+            <text x="40" y="66">1 mm carbon spar</text>
+            <line x1="470" y1="430" x2="400" y2="380"/><circle cx="400" cy="380" r="3"/>
+            <text x="404" y="448">film membrane</text>
+            <line x1="330" y1="510" x2="286" y2="404"/><circle cx="286" cy="404" r="3"/>
+            <text x="300" y="528">gearbox · 1:25.4</text>
+          </g>
+        </svg>
       </div>
     </div>
-  </header>
-  <section class="mid">
-    <h1 class="wm" aria-label="AvioX">AVIO<span class="x">X</span></h1>
-    <p class="line" data-t="line">Drones and machines. Built to order.</p>
-    <button class="cta" type="button" id="openReq" data-t="cta">Submit a request</button>
-  </section>
-  <footer class="bot">
-    <div class="contacts">
-      <a class="plain" href="tel:+37069555934">+370 695 55934</a>
-      <a href="sms:+37069555934">SMS</a>
-      <a class="plain" href="mailto:avioxstudio@gmail.com">avioxstudio@gmail.com</a>
+  </div>
+  <div class="hero-foot">
+    <div class="wrap mono">
+      <span class="scroll-cue"><i></i>Scroll</span>
+      <span>Background: potential flow around a Joukowski section, <span style="text-transform:none">α</span> = 7°, computed live</span>
     </div>
-    <nav class="contacts">
-      <a href="https://ig.me/m/avio_x_ig" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://www.tiktok.com/@www.aviox.lt" target="_blank" rel="noopener">TikTok</a>
-    </nav>
-  </footer>
+  </div>
+</header>
+
+<main>
+  <section class="band">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div class="idx mono">01 — Disciplines</div>
+        <div>
+          <h2>Where <em>biology</em>, aerodynamics and electronics meet.</h2>
+          <p>Nature solved flight at tiny scales long before we did. AvioX copies the useful parts — veined membranes, flapping strokes, low mass — and backs them with real engineering.</p>
+        </div>
+      </div>
+      <div class="disciplines">
+        <article class="disc rv">
+          <svg viewBox="0 0 300 120" class="draw" aria-hidden="true">
+            <path d="M40 66 C70 40 150 36 260 62 C160 70 80 76 40 66Z" fill="none" stroke="#1b1f1a" stroke-width="1"/>
+            <path d="M0 40 C60 30 140 20 300 44" fill="none" stroke="#4c6b45" stroke-width=".8"/>
+            <path d="M0 54 C60 46 150 34 300 56" fill="none" stroke="#4c6b45" stroke-width=".8"/>
+            <path d="M0 80 C70 84 160 82 300 70" fill="none" stroke="#1b1f1a" stroke-width=".6" opacity=".5"/>
+            <path d="M0 96 C80 98 170 96 300 86" fill="none" stroke="#1b1f1a" stroke-width=".6" opacity=".5"/>
+          </svg>
+          <span class="mono">Aerodynamics</span>
+          <h3>Wings that work</h3>
+          <p>Fixed wings, flying wings and flapping membranes. Control surfaces shift the pressure across a wing to steer it; flapping wings make lift and thrust in the same stroke.</p>
+        </article>
+        <article class="disc rv">
+          <svg viewBox="0 0 300 120" class="draw" aria-hidden="true">
+            <rect x="110" y="34" width="80" height="52" rx="3" fill="none" stroke="#1b1f1a"/>
+            <path d="M10 46 H70 L84 60 H110 M10 74 H110 M190 50 H240 L256 34 H292 M190 70 H226 L246 90 H292 M130 34 V10 M170 86 V112" fill="none" stroke="#1b1f1a" stroke-width=".9"/>
+            <path d="M130 52 h40 M130 60 h28 M130 68 h34" fill="none" stroke="#d08a2e" stroke-width="1.1"/>
+          </svg>
+          <span class="mono">Electronics</span>
+          <h3>Nervous systems</h3>
+          <p>ESP32 boards, flight controllers, video links and custom firmware. Control over WiFi, telemetry and live camera — packed into grams.</p>
+        </article>
+        <article class="disc rv">
+          <svg viewBox="0 0 300 120" data-gears="9" aria-hidden="true" style="fill:none;stroke:#1b1f1a;stroke-width:.9">
+            <g data-gear="110 58 30 42" data-period="9"><circle cx="110" cy="58" r="5"/></g>
+            <g data-gear="169 58 12 16.8" data-period="3.6" data-dir="-1"><circle cx="169" cy="58" r="3"/></g>
+            <g data-gear="201 90 20 28" data-period="6"><circle cx="201" cy="90" r="4"/></g>
+          </svg>
+          <span class="mono">Mechanisms</span>
+          <h3>Printed gear trains</h3>
+          <p>Involute spur gears printed at module 0.6–0.8, carbon rods, hand-tuned linkages — reduction stages small enough to sit beside a coin.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band scale">
+    <div class="wrap scale-grid">
+      <figure class="rv">
+        <img src="media/gearbox-coin-1600.webp" srcset="media/gearbox-coin-800.webp 800w, media/gearbox-coin-1600.webp 1600w" sizes="(max-width:900px) 100vw, 50vw" alt="Transparent 3D-printed flapping gearbox next to a one euro coin" loading="lazy" width="1110" height="660">
+        <div class="ruler" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <figcaption class="mono muted" style="margin-top:8px">Fig. — flapping gearbox beside a €1 coin (Ø 23.25 mm)</figcaption>
+      </figure>
+      <div class="rv">
+        <div class="sec-head" style="grid-template-columns:1fr;margin-bottom:0">
+          <div class="idx mono">02 — Scale</div>
+          <div>
+            <h2>Built at the scale of <em>insects</em>.</h2>
+            <p>Every gram changes how something flies. Parts are designed around the smallest motors and boards that will do the job.</p>
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat"><b>1:25.4</b><span class="mono">flap reduction</span></div>
+          <div class="stat"><b>1 mm</b><span class="mono">carbon rods</span></div>
+          <div class="stat"><b>6 mm</b><span class="mono">coreless motor</span></div>
+          <div class="stat"><b>≈22 g</b><span class="mono">target mass</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band lab">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div class="idx mono">03 — Inside</div>
+        <div>
+          <h2>Light, logic and <em>signal</em>.</h2>
+          <p>Under the foam and film: flight controllers, radios and video transmitters, wired and tuned by hand.</p>
+        </div>
+      </div>
+      <div class="lab-grid">
+        <div class="loop rv" style="aspect-ratio:640/652">
+          <img src="media/avionics-glow.webp" alt="Flight controller LEDs glowing inside a fixed-wing drone fuselage" loading="lazy" width="640" height="652">
+          <span class="tag mono">Avionics bay · live</span>
+        </div>
+        <div class="rv">
+          <ul class="signal">
+            <li><span class="n mono">01</span><div><b>Sense</b><span class="muted">Camera, gyro and receiver inputs.</span></div></li>
+            <li><span class="n mono">02</span><div><b>Compute</b><span class="muted">ESP32-S3 and F405 flight controllers.</span></div></li>
+            <li><span class="n mono">03</span><div><b>Link</b><span class="muted">WiFi control pages, RC radio, FPV video.</span></div></li>
+            <li><span class="n mono">04</span><div><b>Actuate</b><span class="muted">Servos, magnetic coil actuators, coreless motors.</span></div></li>
+          </ul>
+          <svg class="trace" viewBox="0 0 400 60" preserveAspectRatio="none" aria-hidden="true">
+            <path class="base" d="M0 30 H400"/>
+            <path d="M0 30 H60 L70 10 L80 50 L90 30 H150 L156 22 L162 38 L168 30 H240 L250 6 L262 54 L272 30 H330 L336 24 L342 36 L348 30 H400"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div class="idx mono">04 — Selected builds</div>
+        <div>
+          <h2>Specimens from the <em>workbench</em>.</h2>
+          <p>A few of the machines. The full collection, with loops and data sheets, is on the builds page.</p>
+        </div>
+      </div>
+      <div class="plates">
+        <a class="plate rv" href="builds.html#ornithopter">
+          <div class="frame"><img src="media/ornithopter-wings-800.webp" alt="Ornithopter with clear veined film wings and ESP32 electronics" loading="lazy" width="800" height="1049"></div>
+          <div class="cap"><h3>Ornithopter</h3><span class="mono muted">Plate I</span></div>
+        </a>
+        <a class="plate rv" href="builds.html#fpv-wing">
+          <div class="frame"><img src="media/flying-wing-800.webp" alt="Flying-wing drone with winglets and pusher propeller" loading="lazy" width="800" height="800"></div>
+          <div class="cap"><h3>Flying wing</h3><span class="mono muted">Plate IV</span></div>
+        </a>
+        <a class="plate rv" href="builds.html#micro-car">
+          <div class="frame"><img src="media/micro-car-800.webp" alt="Micro RC car with a foam chassis" loading="lazy" width="800" height="533"></div>
+          <div class="cap"><h3>Micro RC car</h3><span class="mono muted">Plate V</span></div>
+        </a>
+      </div>
+      <div style="margin-top:56px" class="rv"><a class="btn" href="builds.html">All builds <svg viewBox="0 0 14 14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.3"/></svg></a></div>
+    </div>
+  </section>
+
+  <section class="band contact" id="contact">
+    <div class="wrap">
+      <div class="sec-head rv" style="margin-bottom:28px">
+        <div class="idx mono">05 — Contact</div>
+        <p class="muted" style="margin:0">Need a drone, a flying exhibit or a mechanism that doesn't exist yet? Describe the problem — it gets designed from zero.</p>
+      </div>
+      <h2 class="rv"><a href="mailto:avioxstudio@gmail.com">Start a build →</a></h2>
+      <div class="contact-row mono rv">
+        <a href="mailto:avioxstudio@gmail.com">avioxstudio@gmail.com</a>
+        <a href="https://www.tiktok.com/@www.aviox.lt" rel="me noopener" target="_blank">TikTok</a>
+        <a href="https://www.instagram.com/www.aviox.lt/" rel="me noopener" target="_blank">Instagram</a>
+        <span class="muted">Lithuania</span>
+      </div>
+    </div>
+  </section>
 </main>
 
-<dialog id="builds" aria-labelledby="buildsTitle">
-  <div class="pane">
-    <div class="pane-head"><h2 id="buildsTitle" data-t="buildsTitle">Builds</h2><button class="close" type="button" data-close aria-label="Close">×</button></div>
-    <p data-t="buildsIntro">A few things that left the workshop. Most work stays unpublished.</p>
-    <div class="bgrid">
-      <figure class="bcard" data-slug="ornithopter">
-        <div class="bshot"><span class="redact" data-t="noPhoto">Photo withheld</span></div>
-        <figcaption class="bcap"><span class="bcode">AX-01<b data-t="st_test"></b></span><h3 class="bname" data-t="b1n">Flapping-wing drone</h3><p data-t="b1d">Built to fly by flapping, not spinning. Gearbox, wings and electronics designed and 3D printed in-house. Being built and tested.</p></figcaption>
-      </figure>
-      <figure class="bcard" data-slug="solaruav">
-        <div class="bshot"><span class="redact" data-t="noPhoto">Photo withheld</span></div>
-        <figcaption class="bcap"><span class="bcode">AX-02<b data-t="st_wip"></b></span><h3 class="bname" data-t="b2n">Solar fixed-wing</h3><p data-t="b2d">Fixed-wing airframe with solar cells across the top of the wing.</p></figcaption>
-      </figure>
-      <figure class="bcard" data-slug="rccar">
-        <div class="bshot"><span class="redact" data-t="noPhoto">Photo withheld</span></div>
-        <figcaption class="bcap"><span class="bcode">AX-03<b data-t="st_won"></b></span><h3 class="bname" data-t="b3n">Stored-energy car</h3><p data-t="b3d">No motor, no battery for drive. Stored energy only, steering by microcontroller. Under 300 g. Took 1st place.</p></figcaption>
-      </figure>
-      <figure class="bcard" data-slug="rocket">
-        <div class="bshot"><span class="redact" data-t="noPhoto">Photo withheld</span></div>
-        <figcaption class="bcap"><span class="bcode">AX-04<b data-t="st_done"></b></span><h3 class="bname" data-t="b4n">Rocket launch system</h3><p data-t="b4d">3D printed rocket and pad, armed and fired from a phone over Wi-Fi, with a physical safety switch.</p></figcaption>
-      </figure>
-      <figure class="bcard" data-slug="tracker">
-        <div class="bshot"><span class="redact" data-t="noPhoto">Photo withheld</span></div>
-        <figcaption class="bcap"><span class="bcode">AX-05<b data-t="st_done"></b></span><h3 class="bname" data-t="b5n">High-altitude tracker</h3><p data-t="b5d">LoRa GPS link for a stratospheric balloon, plotted live on a map.</p></figcaption>
-      </figure>
-    </div>
-    <p class="bnote" data-t="buildsNote">Client work is never shown without permission.</p>
-    <div class="row"><button class="btn solid" type="button" id="buildsToReq" data-t="cta">Submit a request</button></div>
-  </div>
-</dialog>
-
-<dialog id="info" aria-labelledby="infoTitle">
-  <div class="pane">
-    <div class="pane-head"><h2 id="infoTitle" data-t="infoTitle">About AVIO X</h2><button class="close" type="button" data-close aria-label="Close">×</button></div>
-    <p data-t="about">An independent drone and machine workshop in Lithuania. Every build is designed and made from zero for one specific job.</p>
-    <div class="block"><h3 data-t="whatH">What I build</h3>
-      <ul><li data-t="w1">Fixed-wing UAVs</li><li data-t="w2">Nature-inspired and flapping-wing drones</li><li data-t="w3">RC vehicles and mechanisms</li><li data-t="w4">Electronics and control: ESP32, telemetry, live camera</li></ul></div>
-    <div class="block"><h3 data-t="howH">How it works</h3>
-      <ol><li data-t="h1">You describe the job.</li><li data-t="h2">You get a fixed price and a date before anything starts.</li><li data-t="h3">I design, build and test, and send progress videos.</li><li data-t="h4">You get the finished build.</li></ol></div>
-    <div class="block"><h3 data-t="knowH">Good to know</h3>
-      <p data-t="k1">Flying rules depend on the drone's weight and where you fly. I'll tell you what probably applies, but check with your aviation authority.</p>
-      <p data-t="k2">Languages: Lithuanian, English.</p></div>
-    <div class="block"><h3 data-t="contactH">Contact</h3>
-      <dl class="clist">
-        <dt data-t="cPhone">Phone</dt><dd><a href="tel:+37069555934">+370 695 55934</a> · <a href="sms:+37069555934">SMS</a></dd>
-        <dt data-t="cEmail">Email</dt><dd><a href="mailto:avioxstudio@gmail.com">avioxstudio@gmail.com</a></dd>
-        <dt>Instagram</dt><dd><a href="https://www.instagram.com/avio_x_ig/" target="_blank" rel="noopener">@avio_x_ig</a></dd>
-        <dt>TikTok</dt><dd><a href="https://www.tiktok.com/@www.aviox.lt" target="_blank" rel="noopener">@www.aviox.lt</a></dd>
-      </dl></div>
-    <div class="row"><button class="btn solid" type="button" id="infoToReq" data-t="cta">Submit a request</button></div>
-  </div>
-</dialog>
-
-<dialog id="req" aria-labelledby="reqTitle">
-  <form class="pane" id="reqForm" novalidate>
-    <div class="pane-head"><h2 id="reqTitle" data-t="cta">Submit a request</h2><button class="close" type="button" data-close aria-label="Close">×</button></div>
-    <div class="meta"><span id="stepOf">Step 1 of 3</span><span id="stepName">The job</span></div>
-    <div class="prog" aria-hidden="true"><span id="bar"></span></div>
-    <div class="step" data-step="1">
-      <p class="q" data-t="q1">What does it have to do?</p>
-      <label for="f-job"><span data-t="fJob">Where it works, what it carries, how long it runs</span><textarea id="f-job" rows="5" data-ph="jobPh"></textarea></label>
-    </div>
-    <div class="step" data-step="2" hidden>
-      <p class="q" data-t="q2">Any limits?</p>
-      <label for="f-limits"><span data-t="fLimits">Size or weight limits</span><input id="f-limits" data-ph="limitsPh"></label>
-      <label for="f-deadline"><span data-t="fDeadline">Deadline</span><input id="f-deadline" data-ph="deadlinePh"></label>
-      <label for="f-budget"><span data-t="fBudget">Budget</span><select id="f-budget"><option value="0"></option><option value="1"></option><option value="2"></option><option value="3"></option><option value="4"></option></select></label>
-    </div>
-    <div class="step" data-step="3" hidden>
-      <p class="q" data-t="q3">Who's asking?</p>
-      <label for="f-name"><span data-t="fName">Name or company</span><input id="f-name" autocomplete="name"></label>
-      <label for="f-contact"><span data-t="fContact">How to reach you</span><input id="f-contact" data-ph="contactPh" autocomplete="email"></label>
-    </div>
-    <div class="row"><button class="btn line" type="button" id="back" hidden data-t="back">Back</button><button class="btn solid" type="submit" id="next">Next</button></div>
-    <p class="status" id="status" role="status"></p>
-    <div class="out" id="out" hidden>
-      <p data-t="ready">Your request is ready. Send it whichever way suits you:</p>
-      <pre id="msg"></pre>
-      <div class="row">
-        <a class="btn solid" id="sendMail" href="mailto:avioxstudio@gmail.com" data-t="sendMail">Send by email</a>
-        <a class="btn line" id="sendSms" href="sms:+37069555934" data-t="sendSms">Send as SMS</a>
-        <button class="btn line" type="button" id="sendIg" data-t="sendIg">Copy + Instagram</button>
-        <a class="btn line" href="tel:+37069555934" data-t="call">Call</a>
-      </div>
-    </div>
-  </form>
-</dialog>
-
-<script>
-(function(){
-  var EMAIL = "avioxstudio@gmail.com", PHONE = "+37069555934", IG = "https://ig.me/m/avio_x_ig";
-  var T = {
-    en: {
-      tag: "Built in Lithuania", line: "Drones and machines. Built to order.", cta: "Submit a request", infoLabel: "More info",
-      infoTitle: "About AVIO X", about: "An independent drone and machine workshop in Lithuania. Every build is designed and made from zero for one specific job.",
-      whatH: "What I build", w1: "Fixed-wing UAVs", w2: "Nature-inspired and flapping-wing drones", w3: "RC vehicles and mechanisms", w4: "Electronics and control: ESP32, telemetry, live camera",
-      howH: "How it works", h1: "You describe the job.", h2: "You get a fixed price and a date before anything starts.", h3: "I design, build and test, and send progress videos.", h4: "You get the finished build.",
-      knowH: "Good to know", k1: "Flying rules depend on the drone's weight and where you fly. I'll tell you what probably applies, but check with your aviation authority.", k2: "Languages: Lithuanian, English.",
-      contactH: "Contact", cPhone: "Phone", cEmail: "Email",
-      buildsBtn: "Builds", buildsTitle: "Builds", buildsIntro: "A few things that left the workshop. Most work stays unpublished.", noPhoto: "Photo withheld",
-      st_test: "In test", st_wip: "In the workshop", st_won: "1st place", st_done: "Built",
-      b1n: "Flapping-wing drone", b1d: "Built to fly by flapping, not spinning. Gearbox, wings and electronics designed and 3D printed in-house. Being built and tested.",
-      b2n: "Solar fixed-wing", b2d: "Fixed-wing airframe with solar cells across the top of the wing.",
-      b3n: "Stored-energy car", b3d: "No motor, no battery for drive. Stored energy only, steering by microcontroller. Under 300 g. Took 1st place.",
-      b4n: "Rocket launch system", b4d: "3D printed rocket and pad, armed and fired from a phone over Wi-Fi, with a physical safety switch.",
-      b5n: "High-altitude tracker", b5d: "LoRa GPS link for a stratospheric balloon, plotted live on a map.",
-      buildsNote: "Client work is never shown without permission.",
-      stepOf: "Step {n} of 3", steps: ["The job", "Limits", "You"],
-      q1: "What does it have to do?", fJob: "Where it works, what it carries, how long it runs", jobPh: "e.g. film a 2 km stretch of river from above for 30 minutes",
-      q2: "Any limits?", fLimits: "Size or weight limits", limitsPh: "e.g. under 250 g, fits in a backpack", fDeadline: "Deadline", deadlinePh: "e.g. end of January", fBudget: "Budget",
-      b: ["Not sure yet", "Under €300", "€300–1,000", "€1,000–3,000", "Over €3,000"],
-      q3: "Who's asking?", fName: "Name or company", fContact: "How to reach you", contactPh: "Phone, email or @handle",
-      next: "Next", back: "Back", write: "Write my request", needJob: "Describe what it has to do first.", needYou: "Add your name and how to reach you.",
-      ready: "Your request is ready. Send it whichever way suits you:", sendMail: "Send by email", sendSms: "Send as SMS", sendIg: "Copy + Instagram", call: "Call",
-      copied: "Copied. Paste it into the Instagram chat.", noCopy: "Couldn't copy. Select the text above and copy it manually.",
-      mHi: "Hi AvioX, I'd like a custom build.", mJob: "What it has to do", mLimits: "Limits", mDeadline: "Deadline", mBudget: "Budget", mFrom: "From", mContact: "Contact", mSubject: "Custom build request"
-    },
-    lt: {
-      tag: "Sukurta Lietuvoje", line: "Dronai ir mašinos. Kuriami pagal užsakymą.", cta: "Pateikti užklausą", infoLabel: "Daugiau informacijos",
-      infoTitle: "Apie AVIO X", about: "Nepriklausoma dronų ir mašinų dirbtuvė Lietuvoje. Kiekvienas projektas suprojektuojamas ir pagaminamas nuo nulio vienai konkrečiai užduočiai.",
-      whatH: "Ką kuriu", w1: "Fiksuoto sparno dronus (UAV)", w2: "Gamtos įkvėptus ir plasnojančių sparnų dronus", w3: "RC transporto priemones ir mechanizmus", w4: "Elektroniką ir valdymą: ESP32, telemetrija, tiesioginis vaizdas",
-      howH: "Kaip tai vyksta", h1: "Aprašote užduotį.", h2: "Prieš pradedant gaunate fiksuotą kainą ir terminą.", h3: "Projektuoju, gaminu ir testuoju, siunčiu progreso vaizdo įrašus.", h4: "Gaunate paruoštą darbą.",
-      knowH: "Verta žinoti", k1: "Skrydžių taisyklės priklauso nuo drono svorio ir vietos, kur skrendate. Pasakysiu, kas greičiausiai taikoma, bet pasitikrinkite Transporto kompetencijų agentūroje.", k2: "Kalbos: lietuvių, anglų.",
-      contactH: "Kontaktai", cPhone: "Telefonas", cEmail: "El. paštas",
-      buildsBtn: "Darbai", buildsTitle: "Darbai", buildsIntro: "Keli darbai, kurie paliko dirbtuvę. Dauguma lieka neviešinami.", noPhoto: "Nuotrauka neskelbiama",
-      st_test: "Bandomas", st_wip: "Dirbtuvėje", st_won: "1 vieta", st_done: "Pagamintas",
-      b1n: "Plasnojančių sparnų dronas", b1d: "Sukurtas skristi plasnodamas, o ne sukdamas propelerius. Pavarų dėžė, sparnai ir elektronika suprojektuoti ir atspausdinti savo dirbtuvėje. Kuriamas ir bandomas.",
-      b2n: "Saulės fiksuoto sparno orlaivis", b2d: "Fiksuoto sparno korpusas su saulės elementais ant sparno viršaus.",
-      b3n: "Sukauptos energijos mašina", b3d: "Be variklio ir be baterijos varymui. Tik sukaupta energija, vairuoja mikrovaldiklis. Iki 300 g. Laimėjo 1 vietą.",
-      b4n: "Raketos paleidimo sistema", b4d: "3D spausdinta raketa ir paleidimo aikštelė, užtaisoma ir paleidžiama telefonu per Wi-Fi, su fiziniu saugikliu.",
-      b5n: "Stratosferos sekiklis", b5d: "LoRa GPS ryšys stratosferos balionui, rodomas žemėlapyje realiu laiku.",
-      buildsNote: "Užsakovų darbai be leidimo niekada nerodomi.",
-      stepOf: "{n} žingsnis iš 3", steps: ["Užduotis", "Apribojimai", "Jūs"],
-      q1: "Ką tai turi daryti?", fJob: "Kur veiks, ką neš, kiek laiko turi veikti", jobPh: "pvz., filmuoti 2 km upės ruožą iš viršaus 30 minučių",
-      q2: "Kokie apribojimai?", fLimits: "Dydžio ar svorio apribojimai", limitsPh: "pvz., iki 250 g, telpa į kuprinę", fDeadline: "Terminas", deadlinePh: "pvz., sausio pabaiga", fBudget: "Biudžetas",
-      b: ["Dar nežinau", "Iki 300 €", "300–1 000 €", "1 000–3 000 €", "Daugiau nei 3 000 €"],
-      q3: "Kas klausia?", fName: "Vardas arba įmonė", fContact: "Kaip su jumis susisiekti", contactPh: "Telefonas, el. paštas arba @vardas",
-      next: "Toliau", back: "Atgal", write: "Paruošti užklausą", needJob: "Pirmiausia aprašykite, ką tai turi daryti.", needYou: "Įrašykite vardą ir kaip su jumis susisiekti.",
-      ready: "Užklausa paruošta. Išsiųskite, kaip jums patogiau:", sendMail: "Siųsti el. paštu", sendSms: "Siųsti SMS", sendIg: "Kopijuoti + Instagram", call: "Skambinti",
-      copied: "Nukopijuota. Įklijuokite į Instagram pokalbį.", noCopy: "Nepavyko nukopijuoti. Pažymėkite tekstą viršuje ir nukopijuokite patys.",
-      mHi: "Sveiki, AvioX. Norėčiau užsakyti konstrukciją.", mJob: "Ką tai turi daryti", mLimits: "Apribojimai", mDeadline: "Terminas", mBudget: "Biudžetas", mFrom: "Nuo", mContact: "Kontaktai", mSubject: "Konstrukcijos užklausa"
-    }
-  };
-  var $ = function(id){ return document.getElementById(id); };
-  var lang = (navigator.language || "").toLowerCase().indexOf("lt") === 0 ? "lt" : "en";
-  try { var s = localStorage.getItem("aviox-lang"); if (s && T[s]) lang = s; } catch (e) {}
-  var step = 1, N = 3, built = false;
-  function t(){ return T[lang]; }
-  function v(id){ return ($(id).value || "").trim(); }
-
-  function apply(){
-    var d = t();
-    document.documentElement.lang = lang;
-    document.querySelectorAll("[data-t]").forEach(function(el){ var k = el.getAttribute("data-t"); if (typeof d[k] === "string") el.textContent = d[k]; });
-    document.querySelectorAll("[data-ph]").forEach(function(el){ el.placeholder = d[el.getAttribute("data-ph")]; });
-    document.querySelectorAll("[data-al]").forEach(function(el){ el.setAttribute("aria-label", d[el.getAttribute("data-al")]); });
-    document.querySelectorAll("#f-budget option").forEach(function(o, i){ o.textContent = d.b[i]; });
-    document.querySelectorAll(".lang button").forEach(function(b){ b.setAttribute("aria-pressed", b.getAttribute("data-lang") === lang ? "true" : "false"); });
-    showStep(step, false); if (built) build(); $("status").textContent = "";
-  }
-  document.querySelectorAll(".lang button").forEach(function(b){
-    b.addEventListener("click", function(){ lang = b.getAttribute("data-lang"); try { localStorage.setItem("aviox-lang", lang); } catch (e) {} apply(); });
-  });
-
-  /* panels */
-  function open(dlg){ if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", ""); }
-  function close(dlg){ if (dlg.close) dlg.close(); else dlg.removeAttribute("open"); }
-  $("openInfo").addEventListener("click", function(){ open($("info")); });
-  $("openReq").addEventListener("click", function(){ open($("req")); setTimeout(function(){ $("f-job").focus(); }, 30); });
-  $("infoToReq").addEventListener("click", function(){ close($("info")); open($("req")); });
-  $("openBuilds").addEventListener("click", function(){ open($("builds")); });
-  $("buildsToReq").addEventListener("click", function(){ close($("builds")); open($("req")); });
-  if (location.hash === "#builds") open($("builds"));
-  document.querySelectorAll("[data-close]").forEach(function(b){ b.addEventListener("click", function(){ close(b.closest("dialog")); }); });
-  document.querySelectorAll("dialog").forEach(function(dlg){ dlg.addEventListener("click", function(e){ if (e.target === dlg) close(dlg); }); });
-
-  /* request flow */
-  function showStep(n, focus){
-    var d = t(); step = n;
-    document.querySelectorAll(".step").forEach(function(el){ el.hidden = (+el.getAttribute("data-step") !== n); });
-    $("back").hidden = (n === 1);
-    $("next").textContent = (n === N) ? d.write : d.next;
-    $("bar").style.width = (n / N * 100) + "%";
-    $("stepOf").textContent = d.stepOf.replace("{n}", n);
-    $("stepName").textContent = d.steps[n - 1];
-    if (focus) { var f = document.querySelector('.step[data-step="' + n + '"] input, .step[data-step="' + n + '"] textarea'); if (f) f.focus(); }
-  }
-  function build(){
-    var d = t(), L = [d.mHi, "", d.mJob + ":", v("f-job"), ""];
-    if (v("f-limits")) L.push(d.mLimits + ": " + v("f-limits"));
-    if (v("f-deadline")) L.push(d.mDeadline + ": " + v("f-deadline"));
-    L.push(d.mBudget + ": " + d.b[+$("f-budget").value], "", d.mFrom + ": " + v("f-name"), d.mContact + ": " + v("f-contact"));
-    var text = L.join("\n"); $("msg").textContent = text; built = true;
-    $("sendMail").href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent(d.mSubject) + "&body=" + encodeURIComponent(text);
-    $("sendSms").href = "sms:" + PHONE + "?body=" + encodeURIComponent(text);
-  }
-  $("reqForm").addEventListener("submit", function(e){
-    e.preventDefault(); var d = t(); $("status").textContent = "";
-    if (step === 1 && !v("f-job")) { $("status").textContent = d.needJob; $("f-job").focus(); return; }
-    if (step < N) { showStep(step + 1, true); return; }
-    if (!v("f-name") || !v("f-contact")) { $("status").textContent = d.needYou; (v("f-name") ? $("f-contact") : $("f-name")).focus(); return; }
-    build(); $("out").hidden = false; $("out").scrollIntoView({block: "nearest"});
-  });
-  $("back").addEventListener("click", function(){ $("status").textContent = ""; if (step > 1) showStep(step - 1, true); });
-  $("f-job").addEventListener("keydown", function(e){
-    if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) { e.preventDefault(); if ($("reqForm").requestSubmit) $("reqForm").requestSubmit(); else $("next").click(); }
-  });
-  $("sendIg").addEventListener("click", function(){
-    var d = t(), msg = $("msg");
-    function fallback(){ try { var r = document.createRange(); r.selectNodeContents(msg); var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r); } catch (e) {} $("status").textContent = d.noCopy; }
-    try { navigator.clipboard.writeText(msg.textContent).then(function(){ $("status").textContent = d.copied; }, fallback); } catch (e) { fallback(); }
-    window.open(IG, "_blank", "noopener");
-  });
-  apply();
-
-  /* a faint flock: drifts, avoids the cursor, scatters on a tap */
-  var cv = $("flock"), cx = cv.getContext("2d");
-  var W = 0, H = 0, NB = 36, birds = [], ptr = {x: 0, y: 0, on: false};
-  var still = !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
-  function size(){
-    var dpr = Math.min(window.devicePixelRatio || 1, 2); W = window.innerWidth; H = window.innerHeight;
-    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); cx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  }
-  size(); window.addEventListener("resize", size);
-  for (var i = 0; i < NB; i++) {
-    var a = Math.random() * 6.283;
-    birds.push({x: W * (0.35 + Math.random() * 0.6), y: H * (0.15 + Math.random() * 0.6), vx: Math.cos(a) * 0.5, vy: Math.sin(a) * 0.5, p: Math.random() * 6.283, al: 0});
-  }
-  window.addEventListener("pointermove", function(e){ ptr.x = e.clientX; ptr.y = e.clientY; ptr.on = true; });
-  document.addEventListener("pointerleave", function(){ ptr.on = false; });
-  window.addEventListener("pointerdown", function(e){
-    if (still || (e.target.closest && e.target.closest("a,button,dialog"))) return;
-    for (var i = 0; i < NB; i++) {
-      var b = birds[i], dx = b.x - e.clientX, dy = b.y - e.clientY, dd = Math.hypot(dx, dy) || 1;
-      if (dd < 240) { var f = (1 - dd / 240) * 3; b.vx += dx / dd * f; b.vy += dy / dd * f; b.al = 1; }
-    }
-  });
-  function tick(){
-    for (var i = 0; i < NB; i++) {
-      var b = birds[i], ax = 0, ay = 0, cxs = 0, cys = 0, sx = 0, sy = 0, n = 0;
-      for (var j = 0; j < NB; j++) {
-        if (i === j) continue;
-        var o = birds[j], dx = o.x - b.x, dy = o.y - b.y, d2 = dx * dx + dy * dy;
-        if (d2 < 8100) { n++; ax += o.vx; ay += o.vy; cxs += o.x; cys += o.y; if (d2 < 480) { sx -= dx; sy -= dy; } }
-      }
-      if (n) { b.vx += (ax / n - b.vx) * 0.03 + (cxs / n - b.x) * 0.0006; b.vy += (ay / n - b.vy) * 0.03 + (cys / n - b.y) * 0.0006; }
-      b.vx += sx * 0.004; b.vy += sy * 0.004;
-      if (ptr.on) {
-        var px = b.x - ptr.x, py = b.y - ptr.y, pd = Math.hypot(px, py) || 1;
-        if (pd < 150) { var f = (1 - pd / 150) * 0.4; b.vx += px / pd * f; b.vy += py / pd * f; b.al = Math.min(1, b.al + 0.1); }
-      }
-      var m = 60;
-      if (b.x < m) b.vx += 0.04; if (b.x > W - m) b.vx -= 0.04; if (b.y < m) b.vy += 0.04; if (b.y > H - m) b.vy -= 0.04;
-      var sp = Math.hypot(b.vx, b.vy) || 1, cl = Math.min(Math.max(sp, 0.4), 0.9 + 2.2 * b.al);
-      b.vx = b.vx / sp * cl; b.vy = b.vy / sp * cl;
-      b.x += b.vx; b.y += b.vy; b.p += 0.15 + 0.25 * b.al; b.al *= 0.975;
-    }
-  }
-  function draw(){
-    cx.clearRect(0, 0, W, H); cx.lineWidth = 1;
-    for (var i = 0; i < NB; i++) {
-      var b = birds[i], ang = Math.atan2(b.vy, b.vx), f = 2.2 + Math.sin(b.p) * 1.6;
-      cx.strokeStyle = b.al > 0.15 ? "rgba(92,100,255," + (0.3 + 0.5 * b.al).toFixed(2) + ")" : "rgba(229,231,235,0.16)";
-      cx.save(); cx.translate(b.x, b.y); cx.rotate(ang);
-      cx.beginPath(); cx.moveTo(-3, -f); cx.lineTo(1.5, 0); cx.lineTo(-3, f); cx.stroke(); cx.restore();
-    }
-  }
-  if (still) { for (var k = 0; k < 150; k++) tick(); draw(); }
-  else (function loop(){ if (!document.hidden) { tick(); draw(); } requestAnimationFrame(loop); })();
-})();
-</script>
+<footer><div class="wrap mono"><span>© 2026 AvioX</span><span>Designed &amp; built from zero</span></div></footer>
+<script src="main.js" defer></script>
 </body>
 </html>
